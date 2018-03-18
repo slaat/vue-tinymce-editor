@@ -150,6 +150,7 @@
                     this.editor.setMode('design');
                 }
 
+                editor.setContent(this.content);
                 this.$emit('editorInit', editor);
             },
             concatAssciativeArrays(array1, array2){
