@@ -124,7 +124,7 @@
                     toolbar1: this.toolbar1,
                     toolbar2: this.toolbar2,
                     plugins: this.plugins,
-                    inline : this.inline
+                    inline : this.inline,
                     init_instance_callback : this.initEditor
                 };
                 tinymce.init(this.concatAssciativeArrays(options, this.other_options));
