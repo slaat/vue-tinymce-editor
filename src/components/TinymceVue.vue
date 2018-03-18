@@ -1,6 +1,7 @@
 <template>
   <div>
-      <textarea :id="id">{{ content }}</textarea>
+      <p :id="id" v-if="inline">{{ content }}</p>
+      <textarea :id="id" v-else>{{ content }}</textarea>
   </div>
 </template>
 
@@ -79,7 +80,8 @@
                 toolbar1: { default :'formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat', type: String},
                 toolbar2: { default : '', type: String },
                 other_options: { default : function() { return {}; }, type: Object},
-                readonly: { default: false, type: Boolean }
+                readonly: { default: false, type: Boolean },
+                inline: { default: false, type: Boolean }
         },
         data(){
             return {
@@ -122,6 +124,7 @@
                     toolbar1: this.toolbar1,
                     toolbar2: this.toolbar2,
                     plugins: this.plugins,
+                    inline : this.inline
                     init_instance_callback : this.initEditor
                 };
                 tinymce.init(this.concatAssciativeArrays(options, this.other_options));
