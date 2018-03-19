@@ -60,10 +60,6 @@
   export default {
     name: 'tinymce',
     props: {
-      id : {
-        type : String,
-        required : true
-      },
       htmlClass : { default : '', type : String},
       value : { default : '' },
       plugins : { default : function(){
@@ -114,9 +110,6 @@
         } else {
           this.editor.setMode('design');
         }
-      },
-      id() {
-        this.init();
       }
     },
     methods: {
