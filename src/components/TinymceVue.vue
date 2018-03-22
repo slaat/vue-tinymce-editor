@@ -1,6 +1,6 @@
 <template>
-  <div class="editable" v-if="inline">{{ content }}</div>
-  <textarea class="editable" v-else>{{ content }}</textarea>
+  <div :id="id" class="editable" v-if="inline">{{ content }}</div>
+  <textarea :id="id" class="editable" v-else>{{ content }}</textarea>
 </template>
 
 <script>
@@ -61,7 +61,8 @@
     name: 'tinymce',
     props: {
       htmlClass : { default : '', type : String},
-      value : { default : '' },
+      value: { default : '' },
+	  id: { default : '' },
       plugins : { default : function(){
           return [
             'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -110,12 +111,16 @@
         } else {
           this.editor.setMode('design');
         }
-      }
+      },
+	  id() {
+		this.content = this.value;
+		this.init();
+	  },
     },
     methods: {
       init(){
         let options = {
-          selector: '.editable',
+          selector: `#${id}`,
           skin: false,
           toolbar1: this.toolbar1,
           toolbar2: this.toolbar2,
