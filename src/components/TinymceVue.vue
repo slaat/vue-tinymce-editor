@@ -120,7 +120,7 @@
     methods: {
       init(){
         let options = {
-          selector: `#${id}`,
+          selector: `#${this.id}`,
           skin: false,
           toolbar1: this.toolbar1,
           toolbar2: this.toolbar2,
